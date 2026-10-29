@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Inventario del centro educativo</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+
+<body>
+    <header>
+        <h1>Inventario de materiales e infraestructura</h1>
+        <p>Registro y seguimiento de uso y vida útil</p>
+    </header>
+
+    <main>
+        <section class="card">
+            <h2 id="form-titulo">Nuevo registro</h2>
+            <form id="form" novalidate>
+                <input type="hidden" id="id">
+
+                <label>Nombre
+                    <input type="text" id="nombre" maxlength="100" required>
+                </label>
+                <label>Tipo
+                    <select id="tipo"></select>
+                </label>
+                <label>Ubicación
+                    <input type="text" id="ubicacion" maxlength="100" required>
+                </label>
+                <label>Fecha de adquisición
+                    <input type="date" id="fecha_adquisicion" required>
+                </label>
+                <label>Vida útil estimada (años)
+                    <input type="number" id="vida_util_anios" min="1" max="100" step="1" required>
+                </label>
+                <label>Estado
+                    <select id="estado"></select>
+                </label>
+                <label>Nivel de uso
+                    <select id="uso"></select>
+                </label>
+
+                <div class="acciones">
+                    <button type="submit" id="btn-guardar">Guardar</button>
+                    <button type="button" id="btn-cancelar" class="secundario" hidden>Cancelar edición</button>
+                </div>
+                <ul id="errores" class="errores" hidden></ul>
+            </form>
+        </section>
+
+        <section class="card">
+            <h2>Registros</h2>
+            <div class="tabla-wrap">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Nombre</th>
+                            <th>Tipo</th>
+                            <th>Ubicación</th>
+                            <th>Adquisición</th>
+                            <th>Vida útil</th>
+                            <th>Fin estimado</th>
+                            <th>Vida consumida</th>
+                            <th>Estado</th>
+                            <th>Uso</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody id="tbody"></tbody>
+                </table>
+            </div>
+            <p id="vacio" hidden>No hay registros todavía.</p>
+        </section>
+    </main>
+
+    <script src="/static/app.js"></script>
+</body>
+
+</html>
